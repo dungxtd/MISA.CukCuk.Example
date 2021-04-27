@@ -1,0 +1,6 @@
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.csprojAssemblyReference.cache
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.AssemblyInfo.cs
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\bin\Debug\net5.0\MISA.Core.dll

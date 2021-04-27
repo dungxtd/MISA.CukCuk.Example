@@ -1,11 +1,12 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using MISA.CukCuk.Example.Model;
 using MySqlConnector;
 using System;
 using System.Data;
 using System.Linq;
-
+using MISA.Core.Interfaces.Services;
+using MISA.Core.Interfaces.Repository;
+using MISA.Core.Entities;
 
 namespace MISA.CukCuk.Example.Controllers
 {
@@ -13,19 +14,14 @@ namespace MISA.CukCuk.Example.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
-        {
-            String connectionString = "" +
-                "Host = 47.241.69.179;" +
-                "Port = 3306;" +
-                "Database = MF0_NVManh_CukCuk02;" +
-                "User Id = dev;" +
-                "Password = 12345678;" +
-                "convert zero datetime=true";
+        ICustomerService _customerService;
 
-            IDbConnection dbConnection = new MySqlConnection(connectionString);
-            var customers = dbConnection.Query<Customer>("Proc_GetCustomers", commandType: CommandType.StoredProcedure);
+        ICustomerRepository _customerRepository;
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var customers = _customerRepository.GetAll();
 
             if (customers.Count() > 0)
             {
@@ -34,39 +30,24 @@ namespace MISA.CukCuk.Example.Controllers
             else return NoContent();
         }
 
+        [HttpGet("{customerId}")]
+        public ActionResult GetById(Guid customerId)
+        {
+            var customer = _customerService.GetById(customerId);
+            if (customer != null)
+            {
+                return Ok(customer);
+            }
+            else return NoContent();
+        }
+
         [HttpPost]
         public IActionResult Post(Customer customer)
         {
-
-            String connectionString = "" +
-            "Host = 47.241.69.179;" +
-            "Port = 3306;" +
-            "Database = MF0_NVManh_CukCuk02;" +
-            "User Id = dev;" +
-            "Password = 12345678;" +
-            "convert zero datetime=true";
-
-            IDbConnection dbConnection = new MySqlConnection(connectionString);
-
-            DynamicParameters dynamicParameters = new DynamicParameters();
-
-            dynamicParameters.Add("@m_CustomerCode", customer.CustomerCode);
-
-            var customersCodeExists = dbConnection.QueryFirstOrDefault<bool>("Proc_CheckCustomerCodeExists", dynamicParameters, commandType: CommandType.StoredProcedure);
-            if (customersCodeExists == true)
+            var res = _customerService.Insert(customer);
+            if (res > 0)
             {
-                var response = new
-                {
-                    devMsg = "Mã khách hàng đã tồn tại trong hệ thống.",
-                    MISACode = "002",
-                };
-                return BadRequest(response);
-            }
-
-            var rowsAffect = dbConnection.Execute("Proc_InsertCustomer", param: customer, commandType: CommandType.StoredProcedure);
-            if (rowsAffect > 0)
-            {
-                return StatusCode(201, rowsAffect);
+                return StatusCode(201, res);
             }
             else
             {

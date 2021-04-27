@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace MISA.CukCuk.Example.Model
+namespace MISA.Core.Entities
 {
     public class Customer
     {
+        ///Thông tin khách hàng
+        /// CreatedBy: TDDUNG (27/04/2021)
         ///<summary>
         ///Khoá chính
         /// </summary>
@@ -45,7 +48,7 @@ namespace MISA.CukCuk.Example.Model
         ///<summary>
         ///Ngày sinh
         /// </summary>
-        public DateTime DateOfBirth { get; set;}
+        public DateTime DateOfBirth { get; set; }
 
         ///<summary>
         ///Tên công ty

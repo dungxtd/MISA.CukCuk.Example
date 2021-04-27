@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.CukCuk.Example\\MISA.CukCuk.Example.csproj": {}
+    "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {}
   },
   "projects": {
     "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.Core\\MISA.Core.csproj": {
@@ -50,88 +50,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.CukCuk.Example\\MISA.CukCuk.Example.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.CukCuk.Example\\MISA.CukCuk.Example.csproj",
-        "projectName": "MISA.CukCuk.Example",
-        "projectPath": "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.CukCuk.Example\\MISA.CukCuk.Example.csproj",
-        "packagesPath": "C:\\Users\\tddung\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.CukCuk.Example\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\tddung\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
-            "projectReferences": {
-              "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.Core\\MISA.Core.csproj": {
-                "projectPath": "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.Core\\MISA.Core.csproj"
-              },
-              "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.Infrastructure\\MISA.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.Infrastructure\\MISA.Infrastructure.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "dependencies": {
-            "Dapper": {
-              "target": "Package",
-              "version": "[2.0.78, )"
-            },
-            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
-              "target": "Package",
-              "version": "[1.10.13, )"
-            },
-            "MySqlConnector": {
-              "target": "Package",
-              "version": "[1.3.3, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[5.6.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
