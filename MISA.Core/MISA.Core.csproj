@@ -8,8 +8,4 @@
     <Folder Include="Exceptions\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MISA.Infrastructure\MISA.Infrastructure.csproj" />
-  </ItemGroup>
-
 </Project>

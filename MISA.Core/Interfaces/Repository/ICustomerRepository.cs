@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public namespace MISA.Core.Interfaces.Repository
+namespace MISA.Core.Interfaces.Repository
 {
     public interface ICustomerRepository
     {
