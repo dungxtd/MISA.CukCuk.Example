@@ -12,24 +12,6 @@ namespace MISA.CukCuk.Example.Controllers
     [ApiController]
     public class WeatherForecastController : ControllerBase
     {
-        [HttpGet]
-        public string Get()
-        {
-            var customer = new Customer();
-            return customer.Fullname;
-        }
 
-        [HttpGet("filter")]
-        public int? GetName([FromQuery] string name, [FromQuery] int? age)
-        {
-            return age;
-        }
-
-        [HttpPost]
-        public string Post([FromBody] string name)
-        {
-            var customer = new Customer();
-            return customer.Fullname;
-        }
     }
 }

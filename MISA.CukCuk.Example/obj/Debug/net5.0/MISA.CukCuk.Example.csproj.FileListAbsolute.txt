@@ -60,3 +60,7 @@ C:\Users\dungxtd\Desktop\dotnet\MISA.CukCuk.Example\MISA.CukCuk.Example\obj\Debu
 C:\Users\dungxtd\Desktop\dotnet\MISA.CukCuk.Example\MISA.CukCuk.Example\obj\Debug\net5.0\ref\MISA.CukCuk.Example.dll
 C:\Users\dungxtd\Desktop\dotnet\MISA.CukCuk.Example\MISA.CukCuk.Example\obj\Debug\net5.0\MISA.CukCuk.Example.pdb
 C:\Users\dungxtd\Desktop\dotnet\MISA.CukCuk.Example\MISA.CukCuk.Example\obj\Debug\net5.0\MISA.CukCuk.Example.genruntimeconfig.cache
+C:\Users\dungxtd\Desktop\dotnet\MISA.CukCuk.Example\MISA.CukCuk.Example\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\dotnet\MISA.CukCuk.Example\MISA.CukCuk.Example\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\dotnet\MISA.CukCuk.Example\MISA.CukCuk.Example\bin\Debug\net5.0\MISA.Infrastructure.dll
+C:\Users\dungxtd\Desktop\dotnet\MISA.CukCuk.Example\MISA.CukCuk.Example\bin\Debug\net5.0\MISA.Infrastructure.pdb

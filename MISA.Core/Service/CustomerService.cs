@@ -11,7 +11,15 @@ namespace MISA.Core.Service
 {
     public class CustomerService : ICustomerService
     {
+        /// <summary>
+        /// Validate
+        /// </summary>
         ICustomerRepository _customerRepository;
+
+        public CustomerService(ICustomerRepository customerRepository)
+        {
+            _customerRepository = customerRepository;
+        } 
         public int Delete(Guid customerId)
         {
             var rowsAffect = _customerRepository.Delete(customerId);
@@ -26,6 +34,7 @@ namespace MISA.Core.Service
 
         public Customer GetById(Guid customerId)
         {
+            //var customer = _customerRepository.GetById(customerId);
             var customer = _customerRepository.GetById(customerId);
             return customer;
         }
@@ -34,7 +43,16 @@ namespace MISA.Core.Service
         {
 
             //Validate dữ liệu
-            //C
+            //Check các thong tin bắt buộc phải nhập
+            if (string.IsNullOrEmpty(customer.CustomerCode))
+            {
+                var response = new
+                {
+                    devMsg = "Mã khách hàng không được phép để trống",
+                    MISACode = "001",
+                };
+                throw new Exception("Có lỗi xảy ra vui lòng liên hệ MISA.");
+            }
             var rowsAffect = _customerRepository.Insert(customer);
             return rowsAffect;
         }

@@ -18,7 +18,7 @@ namespace MISA.Infrastructure.Repository
             // Khởi tạo kết nối
 
             //Check dữ liệu
-            return false;
+            return true;
         }
 
         public bool CheckPhoneNumberExits(string phoneNumber)
@@ -64,11 +64,10 @@ namespace MISA.Infrastructure.Repository
                "Port = 3306;" +
                "Database = MF0_NVManh_CukCuk02;" +
                "User Id = dev;" +
-               "Password = 12345678;" +
-               "convert zero datetime=true";
+               "Password = 12345678;";
             IDbConnection dbConnection = new MySqlConnection(connectionString);
             DynamicParameters dynamicParameters = new DynamicParameters();
-            dynamicParameters.Add("@customerId", customerId.ToString());
+            dynamicParameters.Add("@customerId", customerId);
             var customer = dbConnection.QueryFirstOrDefault<Customer>("Proc_GetCustomerById", dynamicParameters, commandType: CommandType.StoredProcedure);
             return customer;
         }
