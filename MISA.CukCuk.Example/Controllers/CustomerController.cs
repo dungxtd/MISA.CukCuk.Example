@@ -89,7 +89,7 @@ namespace MISA.CukCuk.Example.Controllers
             var res = _customerService.Insert(customer);
             if (res > 0)
             {
-                return StatusCode(201, res);
+                return StatusCode(200, res);
             }
             else
             {
@@ -104,8 +104,8 @@ namespace MISA.CukCuk.Example.Controllers
         /// </summary>
         /// <param name="customer">Thông tin đối lượng khách hàng</param>
         /// <returns>
-        /// StatusCode: 200 - Thêm mới thành công
-        /// StatusCode: 204 - Không thêm mới được vào data base
+        /// StatusCode: 200 - Sửa thành công
+        /// StatusCode: 204 - Không sửa được ở data base
         /// StatusCode: 400 - Dữ kiệu đầu vào không hợp lệ
         /// StatusCode: 500 - Có lỗi xảy ra phía server (exception,...)
         /// </returns>
@@ -113,28 +113,15 @@ namespace MISA.CukCuk.Example.Controllers
         [HttpPut]
         public ActionResult Put(Customer customer)
         {
-            String connectionString = "" +
-               "Host = 47.241.69.179;" +
-               "Port = 3306;" +
-               "Database = MF0_NVManh_CukCuk02;" +
-               "User Id = dev;" +
-               "Password = 12345678;" +
-               "convert zero datetime=true";
-            IDbConnection dbConnection = new MySqlConnection(connectionString);
-
-            DynamicParameters dynamicParameters = new DynamicParameters();
-            dynamicParameters.Add("@customer", customer);
-            var customerPut = dbConnection.Execute("Proc_UpdateCustomer", param: customer, commandType: CommandType.StoredProcedure);
-            var response = new
+            var res = _customerService.Update(customer);
+            if (res > 0)
             {
-                devMsg = "Mã khách hàng không tồn tại trong hệ thống.",
-                MISACode = "002",
-            };
-            if (customerPut == 1)
-            {
-                return StatusCode(200, customerPut);
+                return StatusCode(200, res);
             }
-            else return BadRequest(response);
+            else
+            {
+                return NoContent();
+            }
 
 
 

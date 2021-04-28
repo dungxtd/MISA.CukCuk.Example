@@ -20,7 +20,8 @@ namespace MISA.Core.Service
         }
         public int Delete(Guid customerGroupId)
         {
-            throw new NotImplementedException();
+            var rowsAffect = _customerGroupRepository.Delete(customerGroupId);
+            return rowsAffect;
         }
 
         public IEnumerable<CustomerGroup> GetAll()
@@ -35,12 +36,14 @@ namespace MISA.Core.Service
 
         public int Insert(CustomerGroup customerGroup)
         {
-            throw new NotImplementedException();
+            var rowsAffect = _customerGroupRepository.Insert(customerGroup);
+            return rowsAffect;
         }
 
         public int Update(CustomerGroup customerGroup)
         {
-            throw new NotImplementedException();
+            var rowsAffect = _customerGroupRepository.Update(customerGroup);
+            return rowsAffect;
         }
     }
 }

@@ -16,7 +16,6 @@ namespace MISA.Infrastructure.Repository
         public bool CheckCustomerCodeExits(string customerCode)
         {
             // Khởi tạo kết nối
-
             //Check dữ liệu
             return true;
         }
