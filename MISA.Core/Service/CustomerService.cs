@@ -1,4 +1,5 @@
-﻿using MISA.Core.Entities;
+﻿using MISA.Core.AttributeCustom;
+using MISA.Core.Entities;
 using MISA.Core.Interfaces.Repository;
 using MISA.Core.Interfaces.Services;
 using System;
@@ -18,11 +19,20 @@ namespace MISA.Core.Service
             _customerRepository = customerRepository;
         }
 
-        protected override void Validate(Customer entity)
+        protected override void CustomValidate(Customer entity)
         {
             if(entity is Customer)
             {
+                
                 var customer = entity;
+
+                //Tên khách hàng không được phép để trống
+                if (string.IsNullOrEmpty(customer.Fullname))
+                {
+                    throw new Exception("Tên khách hàng không được phép để trống");
+                }
+
+
                 //Check các thông tin bắt buộc nhập
 
 

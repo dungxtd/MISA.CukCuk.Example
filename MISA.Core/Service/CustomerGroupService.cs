@@ -18,6 +18,9 @@ namespace MISA.Core.Service
             _customerGroupRepository = customerGroupRepository;
 
         }
+        protected override void CustomValidate(CustomerGroup entity)
+        {
+        }
         //public int Delete(Guid customerGroupId)
         //{
         //    var rowsAffect = _customerGroupRepository.Delete(customerGroupId);

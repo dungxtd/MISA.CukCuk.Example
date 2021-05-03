@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MISA.Core.AttributeCustom;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,14 @@ namespace MISA.Core.Entities
         ///<summary>
         ///Mã khsach hàng
         /// </summary>
+        [MISARequired("Mã khách hàng không được phép để trống")]
+        [MISAMaxLength(20,"Mã khách hàng không được dài quá 20 kí tự")]
         public string CustomerCode { get; set; }
 
         ///<summary>
         ///Họ và tên
         /// </summary>
+        [MISARequired]
         public string Fullname { get; set; }
 
         ///<summary>
