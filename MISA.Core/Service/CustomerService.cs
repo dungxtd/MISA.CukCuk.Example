@@ -86,5 +86,15 @@ namespace MISA.Core.Service
         //    var rowsAffect = _customerRepository.Update(customer);
         //    return rowsAffect;
         //}
+
+        public IEnumerable<Customer> GetOfPage(int pageIndex, int pageSize, string fullName, Guid? groupId)
+        {
+
+            int fromIndex = (pageIndex - 1) * pageSize;
+
+            var customers = _customerRepository.GetInRange(fullName: fullName, groupId: groupId, fromIndex: fromIndex, numberOfRecords: pageSize);
+
+            return customers;
+        }
     }
 }

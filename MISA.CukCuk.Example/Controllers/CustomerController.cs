@@ -149,7 +149,19 @@ namespace MISA.CukCuk.Example.Controllers
             else return NoContent();
         }
 
-
+        [HttpGet("paging")]
+        public IActionResult Paging(int pageIndex, int pageSize, string fullName, Guid? groupId)
+        {
+            var customers = _customerService.GetOfPage(pageIndex, pageSize, fullName, groupId);
+            if (customers.Count() > 0)
+            {
+                return Ok(customers);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
 
     }
 }

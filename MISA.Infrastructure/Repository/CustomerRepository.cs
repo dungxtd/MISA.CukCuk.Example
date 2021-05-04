@@ -24,5 +24,24 @@ namespace MISA.Infrastructure.Repository
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Customer> GetInRange(int fromIndex, int numberOfRecords, string fullName, Guid? groupId)
+        {
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                string sqlCommand = $"SELECT * FROM Customer c WHERE " + "c.FullName LIKE CONCAT(\"%\", " + "\"" + fullName + "\"" + $" ,\"%\") AND c.CustomerGroupId = '{groupId}'" + " LIMIT " + fromIndex + " , " + numberOfRecords + " ; ";
+
+                if (groupId == null)
+                {
+                    sqlCommand = $"SELECT * FROM Customer c WHERE " + "c.FullName LIKE CONCAT(\"%\", " + "\"" + fullName + "\"" + $" ,\"%\")" + " LIMIT " + fromIndex + " , " + numberOfRecords + " ; ";
+                }
+
+                var customers = dbConnection.Query<Customer>(sqlCommand, commandType: CommandType.Text);
+
+                return customers;
+            }
+
+
+        }
     }
 }

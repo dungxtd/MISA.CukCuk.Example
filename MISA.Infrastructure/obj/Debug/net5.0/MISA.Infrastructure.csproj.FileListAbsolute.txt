@@ -34,3 +34,12 @@ C:\Users\tddung\Desktop\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0
 C:\Users\tddung\Desktop\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.dll
 C:\Users\tddung\Desktop\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\ref\MISA.Infrastructure.dll
 C:\Users\tddung\Desktop\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.pdb
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\bin\Debug\net5.0\MISA.Infrastructure.deps.json
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\bin\Debug\net5.0\MISA.Infrastructure.dll
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\bin\Debug\net5.0\ref\MISA.Infrastructure.dll
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\bin\Debug\net5.0\MISA.Infrastructure.pdb
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.csproj.CopyComplete
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.dll
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\ref\MISA.Infrastructure.dll
+C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Infrastructure\obj\Debug\net5.0\MISA.Infrastructure.pdb
