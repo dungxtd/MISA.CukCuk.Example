@@ -29,19 +29,14 @@ namespace MISA.Infrastructure.Repository
         {
             using (dbConnection = new MySqlConnection(connectionString))
             {
-                string sqlCommand = $"SELECT * FROM Customer c WHERE " + "c.FullName LIKE CONCAT(\"%\", " + "\"" + fullName + "\"" + $" ,\"%\") AND c.CustomerGroupId = '{groupId}'" + " LIMIT " + fromIndex + " , " + numberOfRecords + " ; ";
-
-                if (groupId == null)
-                {
-                    sqlCommand = $"SELECT * FROM Customer c WHERE " + "c.FullName LIKE CONCAT(\"%\", " + "\"" + fullName + "\"" + $" ,\"%\")" + " LIMIT " + fromIndex + " , " + numberOfRecords + " ; ";
-                }
-
-                var customers = dbConnection.Query<Customer>(sqlCommand, commandType: CommandType.Text);
-
+                string cmdString = "";
+                if (groupId != null)
+                    cmdString = $"SELECT * FROM Customer c WHERE " + "c.FullName LIKE CONCAT(\"%\", " + "\"" + fullName + "\"" + $" ,\"%\") AND c.CustomerGroupId = '{groupId}'" + " LIMIT " + fromIndex + " , " + numberOfRecords + " ; ";
+                else
+                    cmdString = $"SELECT * FROM Customer c WHERE " + "c.FullName LIKE CONCAT(\"%\", " + "\"" + fullName + "\"" + $" ,\"%\")" + " LIMIT " + fromIndex + " , " + numberOfRecords + " ; ";
+                var customers = dbConnection.Query<Customer>(cmdString, commandType: CommandType.Text);
                 return customers;
             }
-
-
         }
     }
 }

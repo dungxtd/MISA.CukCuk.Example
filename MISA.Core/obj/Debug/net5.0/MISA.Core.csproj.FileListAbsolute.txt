@@ -34,3 +34,15 @@ C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\MI
 C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\MISA.Core.dll
 C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\ref\MISA.Core.dll
 C:\Users\tddung\Desktop\dotnet\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\bin\Debug\net5.0\MISA.Core.deps.json
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\bin\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\bin\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\bin\Debug\net5.0\MISA.Core.pdb
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\MISA.Core.csprojAssemblyReference.cache
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\MISA.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfoInputs.cache
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\MISA.Core.AssemblyInfo.cs
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\MISA.Core.csproj.CoreCompileInputs.cache
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\MISA.Core.dll
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\ref\MISA.Core.dll
+C:\Users\dungxtd\Desktop\dotnet\New folder\MISA.CukCuk.Example\MISA.Core\obj\Debug\net5.0\MISA.Core.pdb
