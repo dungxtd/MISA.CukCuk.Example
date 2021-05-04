@@ -25,16 +25,15 @@ namespace MISA.Infrastructure.Repository
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Customer> GetInRange(int fromIndex, int numberOfRecords, string fullName, Guid? groupId)
+        public IEnumerable<Customer> GetPaging(int pageIndex, int pageSize)
         {
             using (dbConnection = new MySqlConnection(connectionString))
             {
-                string cmdString = "";
-                if (groupId != null)
-                    cmdString = $"SELECT * FROM Customer c WHERE " + "c.FullName LIKE CONCAT(\"%\", " + "\"" + fullName + "\"" + $" ,\"%\") AND c.CustomerGroupId = '{groupId}'" + " LIMIT " + fromIndex + " , " + numberOfRecords + " ; ";
-                else
-                    cmdString = $"SELECT * FROM Customer c WHERE " + "c.FullName LIKE CONCAT(\"%\", " + "\"" + fullName + "\"" + $" ,\"%\")" + " LIMIT " + fromIndex + " , " + numberOfRecords + " ; ";
-                var customers = dbConnection.Query<Customer>(cmdString, commandType: CommandType.Text);
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@m_PageIndex", pageIndex);
+                dynamicParameters.Add("@m_PageSize", pageSize);
+
+                var customers = dbConnection.Query<Customer>("Proc_GetCustomerPaging", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                 return customers;
             }
         }

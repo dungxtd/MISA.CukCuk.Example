@@ -15,144 +15,18 @@ namespace MISA.CukCuk.Example.Controllers
     [ApiController]
 
 
-    public class CustomerController : ControllerBase
+    public class CustomerController : BaseController<Customer>
     {
-
-
         ICustomerService _customerService;
-        ICustomerRepository _customerRepository;
-
-
-
-        public CustomerController(ICustomerService customerService, ICustomerRepository customerRepository)
+        public CustomerController(ICustomerService customerService): base(customerService)
         {
             _customerService = customerService;
-            _customerRepository = customerRepository;
-        }
-
-
-        /// <summary>
-        /// Lấy dữ liệu toàn bộ khách hàng
-        /// </summary>
-        /// <returns>
-        /// StatusCode: 200 - có dữ liệu trả về
-        /// StatusCode: 204 - không có dữ liệu trả về
-        /// </returns>
-        /// CreatedBy: TDDUNG (27/4/2021)
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var customers = _customerRepository.GetAll();
-
-            if (customers.Count() > 0)
-            {
-                return Ok(customers);
-            }
-            else return NoContent();
-        }
-
-
-        /// <summary>
-        /// Lấy dữ liệu khách hàng theo Id  
-        /// </summary>
-        /// <returns>
-        /// StatusCode: 200 - có dữ liệu trả về
-        /// StatusCode: 204 - không có dữ liệu trả về
-        /// </returns>
-        /// CreatedBy: TDDUNG (27/4/2021)
-        [HttpGet("{customerId}")]
-        public ActionResult GetById(Guid customerId)
-        {
-            var customer = _customerService.GetById(customerId);
-            if (customer != null)
-            {
-                return Ok(customer);
-            }
-            else return NoContent();
-        }
-
-
-        /// <summary>
-        /// Thêm mới khách hàng
-        /// </summary>
-        /// <param name="customer">Thông tin đối lượng khách hàng</param>
-        /// <returns>
-        /// StatusCode: 200 - Thêm mới thành công
-        /// StatusCode: 204 - Không thêm mới được vào data base
-        /// StatusCode: 400 - Dữ kiệu đầu vào không hợp lệ
-        /// StatusCode: 500 - Có lỗi xảy ra phía server (exception,...)
-        /// </returns>
-        /// CreatedBy: TDDUNG (27/4/2021)
-        [HttpPost]
-        public IActionResult Post(Customer customer)
-        {
-            var res = _customerService.Insert(customer);
-            if (res > 0)
-            {
-                return StatusCode(200, res);
-            }
-            else
-            {
-                return NoContent();
-            }
-        }
-
-
-
-        /// <summary>
-        /// Sửa thông tin khách hàng
-        /// </summary>
-        /// <param name="customer">Thông tin đối lượng khách hàng</param>
-        /// <returns>
-        /// StatusCode: 200 - Sửa thành công
-        /// StatusCode: 204 - Không sửa được ở data base
-        /// StatusCode: 400 - Dữ kiệu đầu vào không hợp lệ
-        /// StatusCode: 500 - Có lỗi xảy ra phía server (exception,...)
-        /// </returns>
-        /// CreatedBy: TDDUNG (27/4/2021)
-        [HttpPut]
-        public ActionResult Put(Customer customer)
-        {
-            var res = _customerService.Update(customer);
-            if (res > 0)
-            {
-                return StatusCode(200, res);
-            }
-            else
-            {
-                return NoContent();
-            }
-
-
-
-        }
-
-
-
-        /// <summary>
-        /// Xoá khách hàng
-        /// </summary>
-        /// <param name="customerId">Id của khách hàng</param>
-        /// <returns>
-        /// StatusCode: 200 - Thêm mới thành công
-        /// StatusCode: 204 - Không thêm mới được vào data base
-        /// StatusCode: 400 - Dữ kiệu đầu vào không hợp lệ
-        /// StatusCode: 500 - Có lỗi xảy ra phía server (exception,...)
-        /// </returns>
-        /// CreatedBy: TDDUNG (27/4/2021)
-        [HttpDelete]
-        public ActionResult Delete(Guid customerId)
-        {
-            var res = _customerService.Delete(customerId);  
-            if (res > 0)
-                return Ok(res);
-            else return NoContent();
         }
 
         [HttpGet("paging")]
-        public IActionResult Paging(int pageIndex, int pageSize, string fullName, Guid? groupId)
+        public IActionResult GetPaging(int pageIndex, int pageSize)
         {
-            var customers = _customerService.GetOfPage(pageIndex, pageSize, fullName, groupId);
+            var customers = _customerService.GetPaging( pageIndex,  pageSize);
             if (customers.Count() > 0)
             {
                 return Ok(customers);
@@ -162,6 +36,5 @@ namespace MISA.CukCuk.Example.Controllers
                 return NoContent();
             }
         }
-
     }
 }

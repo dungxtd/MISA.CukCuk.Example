@@ -413,6 +413,9 @@
         }
       },
       "MISA.Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.10.13"
+        },
         "runtime": {
           "MISA.Core.dll": {}
         },

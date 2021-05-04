@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using MISA.Core.Interfaces.Repository;
 using MISA.Core.Interfaces.Services;
 using MISA.Core.Service;
+using MISA.CukCuk.Example.MiddleWare;
 using MISA.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,8 @@ namespace MISA.CukCuk.Example
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MISA.CukCuk.Example v1"));
             }
+            // Hook in the global error-handling middleware
+            app.UseMiddleware(typeof(ExceptionHandling));
 
             app.UseHttpsRedirection();
 

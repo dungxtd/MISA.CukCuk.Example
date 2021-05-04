@@ -1,5 +1,6 @@
 ﻿using MISA.Core.AttributeCustom;
 using MISA.Core.Entities;
+using MISA.Core.Exceptions;
 using MISA.Core.Interfaces.Repository;
 using MISA.Core.Interfaces.Services;
 using System;
@@ -23,15 +24,12 @@ namespace MISA.Core.Service
         {
             if(entity is Customer)
             {
-                
                 var customer = entity;
-
                 //Tên khách hàng không được phép để trống
                 if (string.IsNullOrEmpty(customer.Fullname))
                 {
                     throw new Exception("Tên khách hàng không được phép để trống");
                 }
-
 
                 //Check các thông tin bắt buộc nhập
 
@@ -44,56 +42,11 @@ namespace MISA.Core.Service
                 }
             }
         }
-        //public int Delete(Guid customerId)
-        //{
-        //    var rowsAffect = _customerRepository.Delete(customerId);
-        //    return rowsAffect;
-        //}
 
-        //public IEnumerable<Customer> GetAll()
-        //{
-        //    var customers = _customerRepository.GetAll();
-        //    return customers;
-        //}
-
-        //public Customer GetById(Guid customerId)
-        //{
-        //    //var customer = _customerRepository.GetById(customerId);
-        //    var customer = _customerRepository.GetById(customerId);
-        //    return customer;
-        //}
-
-        //public int Insert(Customer customer)
-        //{
-
-        //    //Validate dữ liệu
-        //    //Check các thong tin bắt buộc phải nhập
-        //    if (string.IsNullOrEmpty(customer.CustomerCode))
-        //    {
-        //        var response = new
-        //        {
-        //            devMsg = "Mã khách hàng không được phép để trống",
-        //            MISACode = "001",
-        //        };
-        //        throw new Exception("Có lỗi xảy ra vui lòng liên hệ MISA.");
-        //    }
-        //    var rowsAffect = _customerRepository.Insert(customer);
-        //    return rowsAffect;
-        //}
-
-        //public int Update(Customer customer)
-        //{
-        //    var rowsAffect = _customerRepository.Update(customer);
-        //    return rowsAffect;
-        //}
-
-        public IEnumerable<Customer> GetOfPage(int pageIndex, int pageSize, string fullName, Guid? groupId)
+        public IEnumerable<Customer> GetPaging(int pageIndex, int pageSize)
         {
-
-            int fromIndex = (pageIndex - 1) * pageSize;
-
-            var customers = _customerRepository.GetInRange(fullName: fullName, groupId: groupId, fromIndex: fromIndex, numberOfRecords: pageSize);
-
+            if (pageIndex <= 0 || pageSize <= 0) throw new BadRequestException("Page size và page index phải là số nguyên");
+            var customers = _customerRepository.GetPaging(pageIndex, pageSize);
             return customers;
         }
     }

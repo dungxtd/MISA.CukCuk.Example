@@ -12,7 +12,7 @@ namespace MISA.Infrastructure.Repository
 {
     public class BaseRepository<MISAEntity> : IBaseRepository<MISAEntity> where MISAEntity: class 
     {
-        String tableName = typeof(MISAEntity).Name;
+        protected String tableName = typeof(MISAEntity).Name;
         protected String connectionString = "" +
         "Host = 47.241.69.179;" +
         "Port = 3306;" +

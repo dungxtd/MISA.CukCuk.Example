@@ -13,6 +13,6 @@ namespace MISA.Core.Interfaces.Services
     /// CreatedBy: TDDUNG (27/4/2021)
     public interface ICustomerService: IBaseService<Customer>
     {
-        IEnumerable<Customer> GetOfPage(int pageIndex, int pageSize, string fullName, Guid? groupId);
+        IEnumerable<Customer> GetPaging(int pageIndex, int pageSize);
     }
 }
