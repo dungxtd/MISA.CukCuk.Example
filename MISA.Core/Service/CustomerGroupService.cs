@@ -1,4 +1,5 @@
 ﻿using MISA.Core.Entities;
+using MISA.Core.Exceptions;
 using MISA.Core.Interfaces.Repository;
 using MISA.Core.Interfaces.Services;
 using System;
@@ -16,37 +17,21 @@ namespace MISA.Core.Service
         public CustomerGroupService(ICustomerGroupRepository customerGroupRepository): base(customerGroupRepository)
         {
             _customerGroupRepository = customerGroupRepository;
-
         }
         protected override void CustomValidate(CustomerGroup entity)
         {
+            if (entity is CustomerGroup)
+            {
+                var customerGroup = entity;
+                //Check các thông tin bắt buộc nhập
+
+                //Check trùng tên nhóm khách hàng
+                var customerGroupNameExists = _customerGroupRepository.CheckCustomerGroupNameExists(customerGroup.CustomerGroupName);
+                if (customerGroupNameExists)
+                {
+                    throw new BadRequestException("Tên nhóm khách hàng đã tồn tại trên hệ thống.");
+                }
+            }
         }
-        //public int Delete(Guid customerGroupId)
-        //{
-        //    var rowsAffect = _customerGroupRepository.Delete(customerGroupId);
-        //    return rowsAffect;
-        //}
-
-        //public IEnumerable<CustomerGroup> GetAll()
-        //{
-        //    return _customerGroupRepository.GetAll();
-        //}
-
-        //public CustomerGroup GetById(Guid customerGroupId)
-        //{
-        //    return _customerGroupRepository.GetById(customerGroupId);
-        //}
-
-        //public int Insert(CustomerGroup customerGroup)
-        //{
-        //    var rowsAffect = _customerGroupRepository.Insert(customerGroup);
-        //    return rowsAffect;
-        //}
-
-        //public int Update(CustomerGroup customerGroup)
-        //{
-        //    var rowsAffect = _customerGroupRepository.Update(customerGroup);
-        //    return rowsAffect;
-        //}
     }
 }

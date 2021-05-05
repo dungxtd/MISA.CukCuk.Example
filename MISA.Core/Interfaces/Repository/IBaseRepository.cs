@@ -13,5 +13,6 @@ namespace MISA.Core.Interfaces.Repository
         public int Insert(MISAEntity entity);
         public int Update(MISAEntity entity);
         public int Delete(Guid entityId);
+        public IEnumerable<MISAEntity> GetPaging(int pageIndex, int pageSize);
     }
 }

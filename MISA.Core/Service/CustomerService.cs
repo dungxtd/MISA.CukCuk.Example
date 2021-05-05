@@ -4,6 +4,7 @@ using MISA.Core.Exceptions;
 using MISA.Core.Interfaces.Repository;
 using MISA.Core.Interfaces.Services;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace MISA.Core.Service
@@ -25,29 +26,36 @@ namespace MISA.Core.Service
             if(entity is Customer)
             {
                 var customer = entity;
-                //Tên khách hàng không được phép để trống
-                if (string.IsNullOrEmpty(customer.Fullname))
-                {
-                    throw new Exception("Tên khách hàng không được phép để trống");
-                }
-
                 //Check các thông tin bắt buộc nhập
 
-
                 //Check trùng mã
-                var isExits = _customerRepository.CheckCustomerCodeExits(customer.CustomerCode);
-                if (isExits)
+                var codeIsExits = _customerRepository.CheckCustomerCodeExits(customer.CustomerCode);
+
+                //Check trùng số điện thoại
+                var phoneNumberIsExits = _customerRepository.CheckPhoneNumberExits(customer.PhoneNumber);
+
+                //Check trùng email
+                var emailExists = _customerRepository.CheckEmailExists(customer.Email);
+
+                var checkExitsOptions = new Dictionary<string, bool>();
+                    checkExitsOptions["Mã nhân viên"] = codeIsExits;
+                    checkExitsOptions["Số điện thoại"] = phoneNumberIsExits;
+                    checkExitsOptions["Email"] = emailExists;
+                string errorString = string.Empty;
+                foreach (KeyValuePair<string, bool> option in checkExitsOptions)
                 {
-                    //throw new Exception("Mã khách hàng đã tồn tại trên hệ thống.");
+                    if (option.Value)
+                    {
+                        errorString += option.Key + ", ";
+                    }
+                }
+                if (!string.IsNullOrEmpty(errorString))
+                {
+                    errorString = errorString.Substring(0, errorString.Length - 2);
+                    errorString += " đã tồn tại trên hệ thống.";
+                    throw new BadRequestException(errorString);
                 }
             }
-        }
-
-        public IEnumerable<Customer> GetPaging(int pageIndex, int pageSize)
-        {
-            if (pageIndex <= 0 || pageSize <= 0) throw new BadRequestException("Page size và page index phải là số nguyên");
-            var customers = _customerRepository.GetPaging(pageIndex, pageSize);
-            return customers;
         }
     }
 }

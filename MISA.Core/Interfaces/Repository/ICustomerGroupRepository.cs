@@ -9,5 +9,6 @@ namespace MISA.Core.Interfaces.Repository
 {
     public interface ICustomerGroupRepository: IBaseRepository<CustomerGroup>
     {
+        public bool CheckCustomerGroupNameExists(String customerGroupName);
     }
 }

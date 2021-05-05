@@ -132,5 +132,31 @@ namespace MISA.CukCuk.Example.Controllers
                 return Ok(res);
             else return NoContent();
         }
+
+
+        /// <summary>
+        /// Lấy dữ liệu đối tượng theo trang
+        /// </summary>
+        /// <param name="pageSize, ">Số trang của trang và kích cỡ của trang</param>
+        /// <returns>
+        /// StatusCode: 200 - Thêm mới thành công
+        /// StatusCode: 204 - Không thêm mới được vào data base
+        /// StatusCode: 400 - Dữ kiệu đầu vào không hợp lệ
+        /// StatusCode: 500 - Có lỗi xảy ra phía server (exception,...)
+        /// </returns>
+        /// CreatedBy: TDDUNG (27/4/2021)
+        [HttpGet("paging")]
+        public IActionResult GetPaging(int pageIndex, int pageSize)
+        {
+            var entities = _baseService.GetPaging(pageIndex, pageSize);
+            if (entities.Count() > 0)
+            {
+                return Ok(entities);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
     }
 }

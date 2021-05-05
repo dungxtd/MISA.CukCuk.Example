@@ -33,7 +33,6 @@ namespace MISA.Infrastructure.Repository
                     var entities = dbConnection.Query<MISAEntity>($"Proc_Get{tableName}s", commandType: CommandType.StoredProcedure);
                     return entities;
                 }
-
             }
         }
 
@@ -76,6 +75,20 @@ namespace MISA.Infrastructure.Repository
                 dynamicParameters.Add($"@{tableName}Id", entityId.ToString());
                 var rowsEffect = dbConnection.Execute($"Proc_Delete{tableName}", param: dynamicParameters, commandType: CommandType.StoredProcedure);
                 return rowsEffect;
+            }
+        }
+
+
+        public IEnumerable<MISAEntity> GetPaging(int pageIndex, int pageSize)
+        {
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@m_PageIndex", pageIndex);
+                dynamicParameters.Add("@m_PageSize", pageSize);
+
+                var customers = dbConnection.Query<MISAEntity>($"Proc_Get{tableName}Paging", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return customers;
             }
         }
 

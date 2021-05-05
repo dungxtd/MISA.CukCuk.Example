@@ -1,4 +1,5 @@
 ﻿using MISA.Core.AttributeCustom;
+using MISA.Core.Exceptions;
 using MISA.Core.Interfaces.Repository;
 using MISA.Core.Interfaces.Services;
 using System;
@@ -28,7 +29,6 @@ namespace MISA.Core.Service
 
         public int Insert(MISAEntity entity)
         {
-            
             Validate(entity);
             return _baseRepository.Insert((entity));
         }
@@ -45,14 +45,18 @@ namespace MISA.Core.Service
                     //Lấy giá trị
                     var propertyValue = property.GetValue(entity);
                     //Kiểm tra giá trị
-                    if (string.IsNullOrEmpty(propertyValue.ToString()))
+                    if (propertyValue == null)
+                    {
+                        throw new Exception($"{property.Name} không được phép để null.");
+                    }
+                    if (propertyValue != null && string.IsNullOrEmpty(propertyValue.ToString()))
                     {
                         var msgError = (requireProperies[0] as MISARequired).MsgError;
                         if (string.IsNullOrEmpty(msgError))
                         {
                             throw new Exception($"{property.Name} không được phép để trống.");
                         }
-                        throw new Exception(msgError);
+                        throw new BadRequestException(msgError);
                     }
                 }
                 if (maxLengthProperies.Length > 0)
@@ -64,7 +68,7 @@ namespace MISA.Core.Service
                     if(propertyValue.ToString().Length > maxLength)
                     {
                         var msgError = (maxLengthProperies[0] as MISAMaxLength).MsgError;
-                        throw new Exception(msgError);
+                        throw new BadRequestException(msgError);
                     }
                 }
             }
@@ -82,6 +86,14 @@ namespace MISA.Core.Service
         public int Delete(Guid entityId)
         {
             return _baseRepository.Delete(entityId);
+        }
+        public IEnumerable<MISAEntity> GetPaging(int pageIndex, int pageSize)
+        {
+                //if (pageSize == 0) pageSize = 10;
+                if (pageIndex < 0 || pageSize < 0) throw new BadRequestException("Page size và page index phải là số nguyên dương");
+                //if (pageIndex.GetType() != typeof(int) || pageSize.GetType() != typeof(int)) throw new BadRequestException("Page size và page index phải là số nguyên");
+                var entities = _baseRepository.GetPaging(pageIndex, pageSize);
+                return entities;
         }
     }
 }

@@ -13,28 +13,40 @@ namespace MISA.Infrastructure.Repository
 {
     public class CustomerRepository : BaseRepository<Customer>, ICustomerRepository
     {
+
         public bool CheckCustomerCodeExits(string customerCode)
-        {
-            // Khởi tạo kết nối
-            //Check dữ liệu
-            return true;
-        }
-
-        public bool CheckPhoneNumberExits(string phoneNumber)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Customer> GetPaging(int pageIndex, int pageSize)
         {
             using (dbConnection = new MySqlConnection(connectionString))
             {
                 DynamicParameters dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@m_PageIndex", pageIndex);
-                dynamicParameters.Add("@m_PageSize", pageSize);
+                dynamicParameters.Add("@m_CustomerCode", customerCode);
 
-                var customers = dbConnection.Query<Customer>("Proc_GetCustomerPaging", param: dynamicParameters, commandType: CommandType.StoredProcedure);
-                return customers;
+                var rowsEffect = dbConnection.QueryFirstOrDefault<bool>("Proc_CheckCustomerCodeExists", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return rowsEffect;
+            }
+        }
+
+        public bool CheckPhoneNumberExits(string phoneNumber)
+        {
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@m_PhoneNumber", phoneNumber);
+
+                var rowsEffect = dbConnection.QueryFirstOrDefault<bool>("Proc_CheckPhoneNumberExists", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return rowsEffect;
+            }
+        }
+
+        public bool CheckEmailExists(string email)
+        {
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@m_Email", email);
+
+                var rowsEffect = dbConnection.QueryFirstOrDefault<bool>("Proc_CheckEmailExists", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return rowsEffect;
             }
         }
     }

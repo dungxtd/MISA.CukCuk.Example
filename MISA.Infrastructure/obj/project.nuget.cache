@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "34XxQkUW7VXURUN5TRfYk9ezmLNmpBZN0IrLtn0BnkSfZo4B2lNjj/A93i3acct7e1ehukO+AG8z5bfJLTVnrA==",
+  "dgSpecHash": "nbJE8cSkyly72duN8/dyQyKbA4ZkoXrMwegWTgqMjViGXujQ0pZ5/jD494Kspj84PpdoXuNlEb6lpJlzD+CAyA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dungxtd\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.Infrastructure\\MISA.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.Infrastructure\\MISA.Infrastructure.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\dungxtd\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
-    "C:\\Users\\dungxtd\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.8\\microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512",
-    "C:\\Users\\dungxtd\\.nuget\\packages\\mysqlconnector\\1.3.3\\mysqlconnector.1.3.3.nupkg.sha512"
+    "C:\\Users\\tddung\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
+    "C:\\Users\\tddung\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.8\\microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512",
+    "C:\\Users\\tddung\\.nuget\\packages\\mysqlconnector\\1.3.3\\mysqlconnector.1.3.3.nupkg.sha512"
   ],
   "logs": []
 }

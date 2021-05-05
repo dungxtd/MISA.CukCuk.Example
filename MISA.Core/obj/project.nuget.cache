@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "R3jbt0YoftzYAtn5rM4Gb1xou02PDJuYIupg3OTYhuhCTI2ANd1tZiWEhOehmSTZybsJn6i5uAT+lV+4LZxlyw==",
+  "dgSpecHash": "W49uYZ7SDP1qV/ORtZ5LB2/1ESUIScB9iXY2ldJIeFcWT+eNvzvRbgTlbwkYptqoaSw1pJWjvLjiXrYn7W6nlg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dungxtd\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.Core\\MISA.Core.csproj",
+  "projectFilePath": "C:\\Users\\tddung\\Desktop\\dotnet\\MISA.CukCuk.Example\\MISA.Core\\MISA.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\dungxtd\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.8\\microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512"
+    "C:\\Users\\tddung\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.8\\microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512"
   ],
   "logs": []
 }

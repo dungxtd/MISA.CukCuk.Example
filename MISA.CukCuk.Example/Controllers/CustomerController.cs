@@ -22,19 +22,5 @@ namespace MISA.CukCuk.Example.Controllers
         {
             _customerService = customerService;
         }
-
-        [HttpGet("paging")]
-        public IActionResult GetPaging(int pageIndex, int pageSize)
-        {
-            var customers = _customerService.GetPaging( pageIndex,  pageSize);
-            if (customers.Count() > 0)
-            {
-                return Ok(customers);
-            }
-            else
-            {
-                return NoContent();
-            }
-        }
     }
 }

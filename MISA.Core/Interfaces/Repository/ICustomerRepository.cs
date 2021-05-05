@@ -11,6 +11,6 @@ namespace MISA.Core.Interfaces.Repository
     {
         public bool CheckCustomerCodeExits(String customerCode);
         public bool CheckPhoneNumberExits(String phoneNumber);
-        IEnumerable<Customer> GetPaging(int pageIndex, int pageSize);
+        public bool CheckEmailExists(String email);
     }
 }
